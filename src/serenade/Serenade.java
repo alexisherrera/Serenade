@@ -24,10 +24,7 @@ public class Serenade {
                 sample += harpS[i].sample();
                 if (harpS[i].sample() != 0) { harpS[i].tic(); }
             }
-            StdAudio.play(sample); 
-            
-            
-
+            StdAudio.play(sample);
         }
     }
 }
