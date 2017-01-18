@@ -3,8 +3,8 @@ package serenade;
 public class Serenade {
     
     public static void main(String[] args) {
-    	StdDraw.setXscale(-1.0, 1.0);
-        StdDraw.setYscale(-1.0, 1.0);
+    	StdDraw.setXscale(0.0, 1.0);
+        StdDraw.setYscale(0.0, 1.0);
         StdDraw.setPenColor(StdDraw.BLACK); 
     	String notePossibilities = "q2we4r5ty7u8i9op-[=zxdcfvgbnjmk,.;/' ";
         Key[] harpS = new Key[notePossibilities.length()];
