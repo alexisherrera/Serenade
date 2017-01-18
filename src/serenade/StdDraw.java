@@ -41,7 +41,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
+import java.awt.event.MouseAdapter;
 import java.awt.geom.Arc2D;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.GeneralPath;
@@ -618,6 +618,9 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
 
     // singleton pattern: client can't instantiate
     private StdDraw() { }
+    
+    public static Boolean chaosMode = true;
+    public static Boolean wavesMode = false;
 
 
     // static initializer
@@ -702,9 +705,38 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     private static JMenuBar createMenuBar() {
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu("File");
+        JMenu options = new JMenu("Visual Options");
+        
         menuBar.add(menu);
+        menuBar.add(options);
         JMenuItem menuItem1 = new JMenuItem(" Save...   ");
         menuItem1.addActionListener(std);
+        JMenuItem visChaos = new JMenuItem("Chaos");
+        JMenuItem visWaves = new JMenuItem("Waves");
+        JMenuItem clear = new JMenuItem("Clear");
+        options.add(visChaos);
+        options.add(visWaves);
+        options.add(clear);
+        clear.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+            	clear();
+            }           
+        });
+        visWaves.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+            	wavesMode = true;
+            	chaosMode = false;
+            }           
+        });
+        visChaos.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+            	chaosMode = true;
+            	wavesMode = false;
+            }           
+        });
         menuItem1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,
                                 Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         menu.add(menuItem1);

@@ -37,13 +37,21 @@ public class Key {
         double avgSamp = addSamp / 2.0;
         double avgKarpStrong = avgSamp * ENERGY_DECAY_FACTOR;
         buffer.enqueue(avgKarpStrong);
-        if (buffer.peek() > 0.01) {
-        	if (counter == 200) {
-            	StdDraw.line(Math.random(), Math.random(), Math.random(), Math.random());
-            	counter = 0;
+        if (StdDraw.chaosMode) {
+        	if (buffer.peek() > 0.01) {
+            	if (counter == 200) {
+                	StdDraw.line(Math.random(), Math.random(), Math.random(), Math.random());
+                	counter = 0;
+                }
+            	 counter++;
             }
-        	 counter++;
         }
+        if (StdDraw.wavesMode) {
+        	if (counter == 200) {
+        		
+        	}
+        }
+        
     }
     
     // return the current sample
