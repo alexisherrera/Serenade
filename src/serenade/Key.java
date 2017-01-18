@@ -1,7 +1,5 @@
 package serenade;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.awt.Color;
 
 public class Key {
