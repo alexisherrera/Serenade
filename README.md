@@ -1,6 +1,6 @@
 # Serenade
 
-Computer vision powered painting application made with tracking.js, javascript, and HTML/CSS.
+An electronic musical keyboard with interactive visualizations!
 
 ## Getting Started
 
